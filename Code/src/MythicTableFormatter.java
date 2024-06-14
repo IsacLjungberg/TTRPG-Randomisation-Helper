@@ -4,16 +4,16 @@ public class MythicTableFormatter {
 
     }
 
-    public String FormatArray(String[] array, int columnsNum, int rowsNum){
+    public String formatArray(String[] array, int columnsNum, int rowsNum){
         if(array.length <= columnsNum * rowsNum){
             String table = "";
 
-            for(int n = 0; n < rowsNum; n++){
+            for(int n = 0; n < columnsNum; n++){
                 table += "|         ";
             }
             table += "|\n";
 
-            for(int n = 0; n < rowsNum; n++){
+            for(int n = 0; n < columnsNum; n++){
                 table += "| ------- ";
             }
             table += "|\n";
@@ -27,7 +27,7 @@ public class MythicTableFormatter {
                     } catch (IndexOutOfBoundsException e){
                         entryToAdd = "";
                     }
-                    currentRowString = currentRowString + "| " + (n + rowsNum * i + 1) + ": " + entryToAdd;
+                    currentRowString = currentRowString + "| " + (n + rowsNum * i + 1) + ": " + entryToAdd + " ";
                 }
                 table = table + currentRowString + " |\n";
             }
